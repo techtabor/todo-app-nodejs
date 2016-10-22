@@ -123,3 +123,47 @@ html
 
 		a(href="/add_todo") Hozzaadok egy TODOT
 ```
+
+### add todo
+* add the following to your `app.js` file:
+``` javascript
+//todo hozzaadas
+app.get('/add_todo', function(req, res) {
+	console.log('request add_todo-ra');
+	res.render('add_todo');
+});
+
+app.post('/add', function(req, res) {
+	res.render('add');
+	console.log('todo hozzadas: ' + req.body.todo_text);
+	Todo.create({text: req.body.todo_text})
+});
+```
+
+* add the following to your `views/add_todo.pug` file:
+``` Jade
+html
+    head
+        title Add TODO
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+
+    body
+        form.form-inline(action="/add", method="POST")
+            div.form-group
+                label(for="todo_text") TODO: 
+                input.form-control(name="todo_text" placeholder="ird ide a TODO-t")
+                button.btn-primary(type="submit") Mentem
+```
+
+* add the following to your `views/add.pug` file:
+``` Jade
+html
+	head
+		title YEEEEEY
+	body
+		h3 Sikeres volt a mentes
+		a(href="/") Vissza az osszes TODO-hoz
+```
