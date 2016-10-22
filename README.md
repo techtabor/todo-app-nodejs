@@ -35,3 +35,13 @@ app.listen(3000, function() {
 
 * type `node app.js` in the terminal, then open `http://localhost:3000` in your browser. 
 
+### install further packages and MongoDB setup
+
+* `npm install mongoose`
+* `mkdir db`
+* `"c:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath db`
+* `npm install body-parser`
+* `npm install multer`
+* `npm install pug`
+
+
