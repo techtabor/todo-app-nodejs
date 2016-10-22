@@ -167,3 +167,6 @@ html
 		h3 Sikeres volt a mentes
 		a(href="/") Vissza az osszes TODO-hoz
 ```
+
+### Final thoughts
+Ha végeztél a fentiekkel, érdemes átolvasni, és végigcsinálni [ezt](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular) a tutorialt is.
