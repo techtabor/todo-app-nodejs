@@ -3,13 +3,14 @@ steps to create a simple todo app with node.js
 
 ### node setup
 
+* create a new folder on your machine
 * Download and install node.js from [here](https://nodejs.org/en/download/).
-* `node` opens the node shell in terminal
-* install express: `npm install express`
+* `node` opens the node shell in terminal, test it
+* inside the folder, `npm init` from terminal for creation of package.json file
 
 ### hello world app
 
-* create a `hello.js` file with the following: 
+* create a `hello.js` file with the following:
 ``` javascript
 Console.log("hello");
 ```
@@ -18,7 +19,10 @@ Console.log("hello");
 
 ### hello world server
 
+* install express: `npm install express --save`
+* the `--save` option saves this as needed dependency to the package.json file
 * create an `app.js` file with the following:
+
 ``` javascript
 var express = require('express')
 var app = express()
@@ -33,20 +37,22 @@ app.listen(3000, function() {
 });
 ```
 
-* type `node app.js` in the terminal, then open `http://localhost:3000` in your browser. 
+* type `node app.js` in the terminal, then open `http://localhost:3000` in your browser.
 
 ### install further packages and MongoDB setup
 
-* `npm install mongoose`
+* `npm install mongoose --save`
 * `mkdir db`
-* `"c:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath db`
-* `npm install body-parser`
-* `npm install multer`
-* `npm install pug`
+* windows: `"c:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath db`
+* mac osx:
+* `npm install body-parser --save`
+* `npm install multer --save`
+* `npm install pug --save`
 
 ### todo list server
 
 * add the following to your `app.js` file:
+
 ``` javascript
 var express = require('express');
 
@@ -58,7 +64,7 @@ var upload = multer();
 
 //db
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/node-todo-app'); 
+mongoose.connect('mongodb://localhost/node-todo-app');
 
 //app deklaralas
 var app = express();
@@ -91,7 +97,7 @@ app.get('/', function (req, res) {
 		console.log(texts);
 		res.render('home', {todos: texts});
 	});
-	
+
 });
 
 app.listen(3000, function () {
@@ -104,7 +110,7 @@ app.listen(3000, function () {
 html
 	head
 		title A TODO listam
-		
+
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
 		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
 		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
@@ -115,7 +121,7 @@ html
 			thead
 				tr
 					th TODO
-			
+
 			tbody
 				each todo in todos
 					tr
@@ -126,6 +132,7 @@ html
 
 ### add todo
 * add the following to your `app.js` file:
+
 ``` javascript
 //todo hozzaadas
 app.get('/add_todo', function(req, res) {
@@ -153,7 +160,7 @@ html
     body
         form.form-inline(action="/add", method="POST")
             div.form-group
-                label(for="todo_text") TODO: 
+                label(for="todo_text") TODO:
                 input.form-control(name="todo_text" placeholder="ird ide a TODO-t")
                 button.btn-primary(type="submit") Mentem
 ```
