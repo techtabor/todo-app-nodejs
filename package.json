@@ -1,0 +1,26 @@
+{
+  "name": "todo-app-nodejs",
+  "version": "1.0.0",
+  "description": "steps to create a simple todo app with node.js",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "mongoose": "^4.7.3",
+    "multer": "^1.2.1",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techtabor/todo-app-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techtabor/todo-app-nodejs/issues"
+  },
+  "homepage": "https://github.com/techtabor/todo-app-nodejs#readme"
+}
