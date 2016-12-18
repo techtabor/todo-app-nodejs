@@ -32,7 +32,7 @@ app.use(express.static('public'));
 
 //fooldal
 app.get('/', function (req, res) {
-	console.log('request homera');
+	console.log('request for home');
 	Todo.find(function(err, todos) {
 		var texts = [];
 		for (var i = 0; i < todos.length; ++i) {
@@ -42,6 +42,18 @@ app.get('/', function (req, res) {
 		res.render('home', {todos: texts});
 	});
 
+});
+
+//todo hozzaadas
+app.get('/add_todo', function(req, res) {
+	console.log('request for add_todo');
+	res.render('add_todo');
+});
+
+app.post('/add', function(req, res) {
+	res.render('add');
+	console.log('add todo:' + req.body.todo_text);
+	Todo.create({text: req.body.todo_text})
 });
 
 app.listen(3000, function () {

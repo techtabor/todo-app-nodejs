@@ -90,7 +90,7 @@ app.use(express.static('public'));
 
 //fooldal
 app.get('/', function (req, res) {
-	console.log('request homera');
+	console.log('request for home');
 	Todo.find(function(err, todos) {
 		var texts = [];
 		for (var i = 0; i < todos.length; ++i) {
@@ -103,7 +103,7 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-	console.log('Elindult a szerver');
+	console.log('The server is set up, and listening on port 3000.');
 });
 ```
 * `mkdir views`
@@ -111,7 +111,7 @@ app.listen(3000, function () {
 ``` Jade
 html
 	head
-		title A TODO listam
+		title My Todo list
 
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
 		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
@@ -129,7 +129,7 @@ html
 					tr
 						td= todo
 
-		a(href="/add_todo") Hozzaadok egy TODOT
+		a(href="/add_todo") I add a Todo
 ```
 
 * in another terminal, `node app.js`, then open `localhost:3000` in your browser.
@@ -140,13 +140,13 @@ html
 ``` javascript
 //todo hozzaadas
 app.get('/add_todo', function(req, res) {
-	console.log('request add_todo-ra');
+	console.log('request for add_todo');
 	res.render('add_todo');
 });
 
 app.post('/add', function(req, res) {
 	res.render('add');
-	console.log('todo hozzadas: ' + req.body.todo_text);
+	console.log('add todo: ' + req.body.todo_text);
 	Todo.create({text: req.body.todo_text})
 });
 ```
@@ -165,19 +165,22 @@ html
         form.form-inline(action="/add", method="POST")
             div.form-group
                 label(for="todo_text") TODO:
-                input.form-control(name="todo_text" placeholder="ird ide a TODO-t")
-                button.btn-primary(type="submit") Mentem
+                input.form-control(name="todo_text" placeholder="write your Todo here")
+                button.btn-primary(type="submit") Save
 ```
 
 * add the following to your `views/add.pug` file:
 ``` Jade
 html
 	head
-		title YEEEEEY
+		title My first todo app
 	body
-		h3 Sikeres volt a mentes
-		a(href="/") Vissza az osszes TODO-hoz
+		h3 Saving was successful
+		a(href="/") Back to all the Todos
 ```
+
+* run `node app.js` again, and add several todos.
+Meanwhile see in your console what happens after every click.
 
 ### Final thoughts
 Ha végeztél a fentiekkel, érdemes átolvasni, és végigcsinálni [ezt](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular) a tutorialt is.
