@@ -28,16 +28,17 @@ var express = require('express')
 var app = express()
 
 app.get('/', function (req, res) {
-  console.log("Request erkezett.");
+  console.log("Request arrived.");
   res.send('Hello World');
 })
 
 app.listen(3000, function() {
-	console.log('Fut a "szerver" a 3000 porton.')
+	console.log('The server is set up, and listening on port 3000.')
 });
 ```
 
 * type `node app.js` in the terminal, then open `http://localhost:3000` in your browser.
+* You should see "Request arrived" every time you refresh the page in your browser.
 
 ### install further packages and MongoDB setup
 
