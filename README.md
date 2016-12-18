@@ -12,7 +12,7 @@ steps to create a simple todo app with node.js
 
 * create a `hello.js` file with the following:
 ``` javascript
-Console.log("hello");
+console.log("hello");
 ```
 
 * try it out with `node hello.js`
