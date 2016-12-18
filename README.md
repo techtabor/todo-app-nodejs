@@ -44,8 +44,9 @@ app.listen(3000, function() {
 
 * `npm install mongoose --save`
 * `mkdir db`
+* add db to your `.gitignore` file
 * windows: `"c:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath db`
-* mac osx:
+* mac osx: start mongodb process with `mongod --dbpath=./db`
 * `npm install body-parser --save`
 * `npm install multer --save`
 * `npm install pug --save`
@@ -105,7 +106,7 @@ app.listen(3000, function () {
 	console.log('Elindult a szerver');
 });
 ```
-
+* `mkdir views`
 * add the following to your `views/home.pug` file:
 ``` Jade
 html
@@ -130,6 +131,8 @@ html
 
 		a(href="/add_todo") Hozzaadok egy TODOT
 ```
+
+* in another terminal, `node app.js`, then open `localhost:3000` in your browser.
 
 ### add todo
 * add the following to your `app.js` file:
